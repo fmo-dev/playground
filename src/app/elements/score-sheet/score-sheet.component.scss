@@ -1,0 +1,25 @@
+table {
+    width: 400px;
+    text-align: center;
+    & td, th {
+        border: 1px solid black;
+        height: 30px;
+        padding: 5px;
+    }
+    & .current {
+        transition: all .15s;
+        background-color: rgba(238, 238, 226, 0.637);
+    }
+    & tbody tr:hover {
+        background-color: rgba(160, 159, 159, 0.404);
+    }
+    & .total {
+        font-weight: bold;
+        font-size: 1.2em;
+        background-color: rgb(194, 194, 194);
+    }
+    & .normal {
+        font-weight: 0;
+        font-style: 1.2em;
+    }
+}

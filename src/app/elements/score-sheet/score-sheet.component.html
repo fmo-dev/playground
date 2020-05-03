@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th scope="col" style="empty-cells: hide;"></th>
+            <th scope="col" *ngFor="let player of players;" [style.background-color]="player.color" >Player {{player.number}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let line of sheet" [ngClass]="line.total ? 'total' : 'normal'">
+            <th scope="row">{{line.value}}</th>
+            <td *ngFor="let player of players;" (click) ="line.clickable && selectLine(line)" [ngClass] = "{'current' : current.number && player.number == current.number}" >
+                {{player.scoreSheet[line.value]}}
+            </td>
+        </tr>
+    </tbody>
+</table>
