@@ -1,9 +1,9 @@
 export class Dice {
 
     private nbFaces: number;
-    private color: string;
+    public color: string;
     public currentValue: number;
-    private isSelected: boolean;
+    public isSelected: boolean;
 
     constructor(nbFaces: number, color:string) {
         this.nbFaces = nbFaces;

@@ -1,7 +1,18 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef, AfterViewInit, ComponentFactory  } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+  ComponentFactoryResolver,
+  ComponentRef,
+  AfterViewInit,
+  ComponentFactory,
+  Output,
+  EventEmitter
+} from '@angular/core';
+
 import { Game } from '../game'
 import { MainComponent } from 'src/app/main/main.component';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'displayer',
@@ -9,26 +20,44 @@ import { EventEmitter } from 'events';
   styleUrls: ['./displayer.component.scss']
 })
 export class DisplayerComponent implements AfterViewInit, OnInit {
-  @ViewChild("game",{read:ViewContainerRef})
-  private game:ViewContainerRef;
-  private selectedGame : any;
+  @Output() onBackToMenu: EventEmitter<boolean> = new EventEmitter();
+  @ViewChild("game", { read: ViewContainerRef })
+  private game: ViewContainerRef;
+  private selectedGame: any;
+  public gameEnded: boolean;
+  public finalScores: any;
+  private currentGame: ComponentRef<Game>;
 
-  constructor(private componentFactoryResolver:ComponentFactoryResolver, private main : MainComponent) { }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+    private main: MainComponent) { }
 
-  ngOnInit(): void {
-    this.selectedGame = this.main.selectedGame;  
+  ngAfterViewInit(): void {
+    this.displayGame()
   }
 
-  onEnd(data: any){
-    console.log("Terminé");
+  ngOnInit(): void {
+    this.selectedGame = this.main.selectedGame;
+  }
+
+  onEnd(results: any): void {
+    this.finalScores = results;
+    this.gameEnded = true;
+  }
+
+  displayGame(): void {
+    let resolver: ComponentFactory<Game> = this.componentFactoryResolver.resolveComponentFactory(this.selectedGame.component);
+    this.currentGame = this.game.createComponent(resolver);
+    this.currentGame.instance.nbPlayers = this.selectedGame.nbPlayers;
+    this.currentGame.instance.onEnd.subscribe((data: any) => this.onEnd(data))
     
   }
 
-  ngAfterViewInit(): void {
-    let resolver: ComponentFactory<Game> = this.componentFactoryResolver.resolveComponentFactory(this.selectedGame.component);
-    let component: ComponentRef<Game> = this.game.createComponent(resolver);
-    component.instance.nbPlayers = this.selectedGame.nbPlayers;
-    component.instance.onEnd.subscribe( (data) => this.onEnd(data))
+  replay() {
+    this.gameEnded = false;
+    this.currentGame.destroy();
+    this.displayGame();
   }
+
+  backToMenu = () => this.onBackToMenu.emit(true)
 
 }

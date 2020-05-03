@@ -1,0 +1,29 @@
+.gameContainer {
+    position: relative;
+    & .finalScoresView {
+        position: absolute;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(180, 180, 180, 0.418);
+        z-index: 5;
+        & .finalScores {
+            margin : auto;
+            display: flex;
+            padding: 5vh;
+            flex-direction: column;
+            width: 25vw;
+            border: 1px solid black;
+            background-color: white;
+            & .scoresList {
+                margin-top : 40px;
+                & h3 {
+                    margin-top : 10px; 
+                }
+            }
+            & * {
+                margin: 0 auto;
+            }
+        }
+    }
+}

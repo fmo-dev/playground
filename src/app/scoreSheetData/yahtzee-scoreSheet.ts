@@ -97,15 +97,15 @@ const grandTotal = () => YahtzeeScoreSheet.push({ value : "GRAND TOTAL", calcFun
 
 let YahtzeeScoreSheet: ScoreSheet[] = [];
 initNumberScore(1);
-// totalNumberScore();
-// bonusLine();
-// totalOne();
-// initOfAKindScore();
-// getFullHouseScore();
-// initSuiteScore();
-// getYahtzeeScore();
-// totalTwo();
-// grandTotal();
+totalNumberScore();
+bonusLine();
+totalOne();
+initOfAKindScore();
+getFullHouseScore();
+initSuiteScore();
+getYahtzeeScore();
+totalTwo();
+grandTotal();
 export default YahtzeeScoreSheet;
 
 

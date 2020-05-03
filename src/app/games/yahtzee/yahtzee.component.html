@@ -1,4 +1,4 @@
-<div *ngIf="this.yahtzeeInstance" class="contain">
+<div *ngIf="yahtzeeInstance" class="contain">
         <div class="scoreSheet">
             <score-sheet [sheet]="yahtzeeInstance.scoreSheet" [players]="yahtzeeInstance.players"
                 [current]="yahtzeeInstance.currentPlayer" (onSelectLine)="addScore($event)">
@@ -10,6 +10,6 @@
             <h2>Launch remaining : {{yahtzeeInstance.currentPlayer.currentRoll}}</h2>
             <bucket [params]="yahtzeeInstance.currentPlayer.gameObject"></bucket>
 
-            <button (click)="launch()">Launch</button>
+            <button *ngIf="yahtzeeInstance.currentPlayer.currentRoll != 0" (click)="launch()">Launch</button>
         </div>
 </div>

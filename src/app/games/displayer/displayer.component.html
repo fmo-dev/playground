@@ -1,1 +1,28 @@
-<div #game></div>
+<div class="gameContainer">
+    <div *ngIf="gameEnded" class="finalScoresView">
+        <div class="finalScores">
+            <ng-container *ngIf="finalScores.length > 1">
+                <h1>{{ (finalScores[0].score > finalScores[1].score ? "Player "  + finalScores[0].player + " Win" : "Draw") }}
+                </h1>
+                <div class="scoresList">
+                    <div *ngFor="let result of finalScores">
+                        <h3>Player {{result.player}} : {{result.score || 0}} point{{result.score > 1 ? 's' : ''}}</h3>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="finalScores.length == 1">
+                <h1> Final Score : {{finalScores[0].score || 0}} point{{finalScores[0].score > 1 ? 's' : ''}}</h1>
+            </ng-container>
+            <div class="endButtons">
+                <button (click)="replay()">Replay</button>
+                <button (click)="backToMenu()">Back to menu</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="quitButtons">
+        <button (click)="backToMenu()">Back to menu</button>
+        <button (click)="replay()">Replay</button>
+    </div>
+    <div #game></div>
+</div>

@@ -7,7 +7,7 @@ import { Dice } from '../../model/dice'
 })
 export class DiceComponent {
 
-  @Input() private diceReference : Dice
+  @Input() public diceReference : Dice
 
     constructor() {}
 

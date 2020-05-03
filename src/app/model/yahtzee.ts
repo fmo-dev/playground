@@ -43,11 +43,12 @@ export class Yahtzee extends Game {
   }
 
   endGame(){
-    let data:any[] = []; 
+    let results:any[] = []; 
     this.players.forEach(player => {
-      data.push({ player : player.number, score : player.scoreSheet['Grand Total']})
+      results.push({ player : player.number, score : player.scoreSheet['GRAND TOTAL']})
     });
-    super.endGame(data)
+    results.sort( (a, b) => b.score - a.score )
+    super.endGame(results)
   }
 
 }

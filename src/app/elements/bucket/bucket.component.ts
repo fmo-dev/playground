@@ -5,13 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './bucket.component.html',
   styleUrls: ['./bucket.component.scss']
 })
-export class BucketComponent implements OnInit {
-  @Input() params: any[]
+export class BucketComponent{
+  @Input() params: any;
 
   constructor() { }
 
-  ngOnInit(): void {
-
-  }
 
 }

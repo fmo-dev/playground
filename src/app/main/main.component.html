@@ -1,2 +1,7 @@
 
-<displayer></displayer>
+    <div *ngIf="!selectedGame">
+        <h1>Playground</h1>
+        <button *ngFor="let game of gameList; let i = index" (click)="chooseGame(game)">{{game.name}}</button>
+    </div>
+
+    <displayer *ngIf="selectedGame" (onBackToMenu) = "displayMenu()"></displayer>

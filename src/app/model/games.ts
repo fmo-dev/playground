@@ -4,8 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 
 export class Game {
   private colorArray: string[];
-  protected scoreSheet : ScoreSheet[];
-  protected players : Player[] = [];
+  public scoreSheet : ScoreSheet[];
+  public players : Player[] = [];
   public turn : number;
   public currentPlayer: Player;
   public hasEnded$ : BehaviorSubject<any> = new BehaviorSubject(null);
@@ -28,7 +28,7 @@ export class Game {
     this.currentPlayer = this.players[this.turn++%this.players.length]; 
   }
 
-  endGame(data: any){
-    this.hasEnded$.next(data)
+  endGame(results: any){
+    this.hasEnded$.next(results)
   }
 }
