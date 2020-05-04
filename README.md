@@ -4,7 +4,7 @@ Playground is a game platform under construction with Angular 9.1.4.
 
 ## Features
 
-* Yahtzee ( *under construction* )
+* Yahtzee ( playable - *under construction* )
 
 ## Author
 
