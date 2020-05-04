@@ -1,9 +1,9 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { GameData } from './game.metadata'
-import { GameList } from './gameList'
+import { GameData } from './game.metadata';
+import { GameList } from './gameList';
 
 @Component({
-  selector: 'main',
+  selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
@@ -13,18 +13,13 @@ export class MainComponent {
 
   constructor(private changeDetector: ChangeDetectorRef ) { }
 
-  chooseGame(game: GameData) {
-    this.selectedGame = { component: game.component, nbPlayers: 1 };
+  chooseGame(game: any) {
+    this.selectedGame = game;
     this.changeDetector.detectChanges();
- 
   }
 
-
   displayMenu() {
-    console.log("Fini");
-    
     this.selectedGame = null;
-
   }
 
 

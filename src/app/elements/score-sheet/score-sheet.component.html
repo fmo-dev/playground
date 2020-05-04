@@ -1,4 +1,4 @@
-<table>
+<table aria-describedby="scores">
     <thead>
         <tr>
             <th scope="col" style="empty-cells: hide;"></th>
@@ -8,7 +8,7 @@
     <tbody>
         <tr *ngFor="let line of sheet" [ngClass]="line.total ? 'total' : 'normal'">
             <th scope="row">{{line.value}}</th>
-            <td *ngFor="let player of players;" (click) ="line.clickable && selectLine(line)" [ngClass] = "{'current' : current.number && player.number == current.number}" >
+            <td *ngFor="let player of players;" (click) ="line.clickable && onSelectLine(line)" [ngClass] = "{'current' : current.number && player.number == current.number}" >
                 {{player.scoreSheet[line.value]}}
             </td>
         </tr>

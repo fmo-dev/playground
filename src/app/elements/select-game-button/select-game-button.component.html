@@ -1,0 +1,6 @@
+<button (click)="buttonClick()">
+    {{game.name}}
+</button>
+<div *ngIf="displayNbPlayersChoice">
+    <button *ngFor = "let option of counter(game.maxPlayers); let i = index" (click) = 'onGameSelected(i+1)'>{{i+1}} Player{{i > 0 ? 's' : ''}}</button>
+</div>

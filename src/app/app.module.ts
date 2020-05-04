@@ -9,6 +9,7 @@ import { YahtzeeComponent } from './games/yahtzee/yahtzee.component';
 import { BucketComponent } from './elements/bucket/bucket.component';
 import { DiceComponent } from './elements/dice/dice.component';
 import { ScoreSheetComponent } from './elements/score-sheet/score-sheet.component';
+import { SelectGameButtonComponent } from './elements/select-game-button/select-game-button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ScoreSheetComponent } from './elements/score-sheet/score-sheet.componen
     YahtzeeComponent,
     BucketComponent,
     DiceComponent,
-    ScoreSheetComponent
+    ScoreSheetComponent,
+    SelectGameButtonComponent
   ],
   imports: [
     BrowserModule,

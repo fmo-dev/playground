@@ -7,9 +7,10 @@ export class Player {
   public gameObject: any;
   public number: number;
   public currentRoll: number;
+  private hasPlayed: boolean;
 
-  constructor(scoreSheet: ScoreSheet[], GameObject: any, gameObjectParam: any, color: string, number: number) {
-    this.number = number;
+  constructor(scoreSheet: ScoreSheet[], GameObject: any, gameObjectParam: any, color: string, playerNumber: number) {
+    this.number = playerNumber;
     this.color = color;
     this.initScoreSheet(scoreSheet);
     this.initGameObject(GameObject, gameObjectParam);
@@ -27,18 +28,24 @@ export class Player {
   }
 
   play() {
+    this.hasPlayed = true;
     if (this.gameObject.maxRoll) {
-      if(!this.currentRoll) return;
+      if (!this.currentRoll) {
+        return;
+      }
       this.currentRoll--;
-    } 
+    }
     this.gameObject.play();
   }
 
   initCurrentRoll = () => this.currentRoll = this.gameObject.maxRoll ? this.gameObject.maxRoll : null;
 
-  endTurn(){
+  endTurn() {
+    this.hasPlayed = false;
     this.initCurrentRoll();
     this.gameObject.reiniteAll();
   }
+
+  getHasPlayed = () => this.hasPlayed;
 
 }
