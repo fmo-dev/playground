@@ -1,0 +1,30 @@
+// Générales
+$orange: #ff9f00;
+$purple: #582f9d;
+$dark-blue: #372f9d;
+$dark-grey: #3f3f3f;
+$mid-grey: #656565;
+$light-grey: #828282;
+$lighter-grey: #8b8b8b;
+
+// Autres
+$border-color: #e4e4e4;
+
+$sidebar-icon-no-select: invert(56%) sepia(0%) saturate(3163%) hue-rotate(144deg) brightness(93%) contrast(76%);
+$sidebar-icon-select: invert(70%) sepia(20%) saturate(6575%) hue-rotate(359deg) brightness(100%) contrast(106%);
+
+$required-red: #fd3633;
+
+$status-todo-bg : rgba(253, 54, 51, 0.1);
+$status-todo-font : #fd3633;
+
+$status-in-progress-bg : rgba(0, 128, 255, 0.1);
+$status-in-progress-font : #0080ff;
+
+$status-done-bg : rgba(44, 202, 117, 0.1);
+$status-done-font : #2cca75;
+
+$status-await-bg : rgba(255, 106, 0, 0.1);
+$status-await-font : #ff6a00;
+
+$empty-list-bg: rgba(255, 159, 0, 0.15);

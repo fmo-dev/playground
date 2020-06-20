@@ -1,0 +1,45 @@
+@import "setup/font.scss";
+@import "setup/colors.scss";
+@import "setup/box.scss";
+@import "setup/border.scss";
+@import "setup/button.scss";
+@import "setup/header.scss";
+
+
+* {
+  font-family: $general-font;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
+}
+
+  .can-select, .can-select * {
+    -webkit-touch-callout: text !important; /* iOS Safari */
+    -webkit-user-select: text !important; /* Safari */
+     -khtml-user-select: text !important; /* Konqueror HTML */
+       -moz-user-select: text !important; /* Firefox */
+        -ms-user-select: text !important; /* Internet Explorer/Edge */
+            user-select: text !important; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+  }
+
+.main-bg {
+  width: 100vw;
+  height: 100vh;
+}
+
+.fs, .wfs {
+  width: 100%;
+}
+
+.fs, .hfs {
+  height: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}

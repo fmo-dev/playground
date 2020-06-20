@@ -1,3 +1,5 @@
+@import "./src/assets/styles/main.scss";
+
 .gameContainer {
     position: relative;
     & .finalScoresView {
@@ -18,7 +20,7 @@
             & .scoresList {
                 margin-top : 40px;
                 & h3 {
-                    margin-top : 10px; 
+                    margin-top : 10px;
                 }
             }
             & * {

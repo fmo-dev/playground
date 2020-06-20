@@ -13,7 +13,6 @@ import { Subject } from 'rxjs';
 export class YahtzeeComponent implements OnInit, Game {
 
   @Input() public nbPlayers: number;
-
   public yahtzeeInstance: Yahtzee;
   public onEnd: Subject<any> = new Subject();
 
